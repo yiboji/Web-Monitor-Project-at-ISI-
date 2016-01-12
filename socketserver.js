@@ -29,13 +29,15 @@ http.listen(80);
 console.log("NOW is listening PORT 80");
 
 app.get('/api/data',function(req,res){
+	sort = {'_id':1};
 	node1.find(function(err,data){
 		if(err){
 			concole.log('ERROR'+err);
 			res.send(err);
 		}
+		console.log(data);
 		res.json(data);
-	});
+	}).sort(sort);
 });
 app.get('*',function(req,res){
 	console.log("send html to browser");
