@@ -23,7 +23,9 @@ var node1 = mongoose.model('node1',{
 	cap:Number,
 	status:Number,
 	volt:Number,
-	curr:Number
+	curr:Number,
+	freq:Number,
+	charge:Number
 });
 http.listen(80);
 console.log("NOW is listening PORT 80");
@@ -53,7 +55,9 @@ net.createServer(function (socket){
 			cap:jsonobj.cap,
 			status:jsonobj.status,
 			volt:jsonobj.volt,
-			curr:jsonobj.curr
+			curr:jsonobj.curr,
+			freq:jsonobj.freq,
+			charge:jsonobj.charge
 		},function(err,inserted){
 			if(err)
 				console.log("ERR:insert DB"+err);
